@@ -17,10 +17,6 @@ ul {
   line-height: 20px;
 }
 
-.city-search {
-  height: 20px;
-}
-
 .card {
   min-height: 50px;
   min-width: min-content;
@@ -73,7 +69,7 @@ i {
   padding-right: 0;
 }
 
-#app-area {
+.weather-container {
   margin-top: 30px;
   border: solid 1px skyblue;
   border-radius: 25px;
@@ -94,9 +90,16 @@ i {
 }
 
 #search-text-input {
-  border-radius: 15px;
+  border-radius: 10px;
+  width: 50%;
+  display: inline-block;
+  height: 37px;
 }
 
 #search-text-input:focus {
-  border-radius: 15px;
+  border-radius: 10px;
+}
+
+.btn {
+  margin: auto;
 }

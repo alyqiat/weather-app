@@ -13,148 +13,155 @@
     </head>
 <body>
     <div class="container" id="app-area">
-        <div class="row">
+        <div class="weather-container">
+                <div class="row">
+                    
             
-    
-    <form id="city-search">
-        <div class="form-group">
-            <input type="button" value="Current Location" class="btn btn-success" id="current-location-button"/>
-            <input
-            type="text"
-            class="form-control-lg"
-            id="search-text-input" 
-            placeholder="Enter a city name"
-            autofocus
-            />
-        
+            <form id="city-search">
+                <div class="form-group">
+                    <input type="button" value="Current Location" class="btn btn-success" id="current-location-button"/>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="search-text-input" 
+                    placeholder="Enter a city name"
+                    autofocus
+                    />
+                
 
-        <input type="button" value="Search" class="btn btn-primary" id="search-button" />
-        </div>
-        <div class="row" id="other-cities">
-            <div class="col-3">Wellington</div>
-            <div class="col-3">Christchurch</div>
-            <div class="col-3">Whangerei</div>
-            <div class="col-3">Current Location</div>
-        </div>
+                <input type="button" value="Search" class="btn btn-primary" id="search-button" />
+                </div>
+                <div class="row" id="other-cities">
+                    <div class="col-3">Wellington</div>
+                    <div class="col-3">Christchurch</div>
+                    <div class="col-3">Whangerei</div>
+                    <div class="col-3">Current Location</div>
+                </div>
 
-        <div class="container" id="weather-info">
-            <div class="row">
-                <div class="col-5">
-                    <div class="card" style="width: 15rem;">
-                        <div class="card-body">
-                            <div class="row" id="todays-weather">
-                                <div class="col-sm-6">
-                                    <h5 id="current-city">Auckland</h5>
-                                    <ul id="todays-info">
-                                        <li id="todays-date">date</li>
-                                        <li>Clear</li>
-                                    </ul>
-                                    <h7 class="temperature" id="todays-temperature">
-                                        <span class="temperature-number" id="temperature-number">15</span><span class="temperature-unit" id="temperature-unit">°C</span>
-                                        </h7>
-                                    <footer class="high-low">L:10 H:20</footer>
+                <div class="container" id="weather-info">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="card" style="width: 15rem;">
+                                <div class="card-body">
+                                    <div class="row" id="todays-weather">
+                                        <div class="col-sm-6">
+                                            <h5 id="current-city">Auckland</h5>
+                                            <ul id="todays-info">
+                                                <li id="todays-date">date</li>
+                                                <li>Clear</li>
+                                            </ul>
+                                            <h7 class="temperature" id="todays-temperature">
+                                                <span class="temperature-number" id="temperature-number">15</span><span class="temperature-unit" id="temperature-unit">°C</span>
+                                                </h7>
+                                            <footer class="high-low">L:10 H:20</footer>
+                                        </div>
+                                        <div class="col-sm-6" id="todays-weather-icon">
+                                            <i class="far fa-sun"></i>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6" id="todays-weather-icon">
-                                    <i class="far fa-sun"></i>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="card" style="width: 26rem;">
+                                <div class="card-body">
+                                    <div class="row" id="other-cities">
+                                        <div class="col-sm-6">
+                                            <h6 class="detail-name">Sunrise</h6>
+                                            <h8 class="detail-value">7:25am</h8>
+
+                                            <h6 class="detail-name">Chance of rain</h6>
+                                            <h8 class="detail-value">10%</h8>
+
+                                            <h6 class="detail-name">Wind</h6>
+                                            <h8 class="detail-value">S 5km/hr</h8>
+
+                                            <h6 class="detail-name">Precipitation</h6>
+                                            <h8 class="detail-value">0 mm</h8>
+
+                                            <h6 class="detail-name">Humidity</h6>
+                                            <h8 class="detail-value">9.7km</h8>
+                                        </div>
+                                            
+                                        <div class="col-sm-6">
+                                            <h6 class="detail-name">Sunset</h6>
+                                            <h8 class="detail-value">7:29pm</h8>
+
+                                            <h6 class="detail-name">Humidity</h6>
+                                            <h8 class="detail-value">84%</h8>
+                                            
+                                            <h6 class="detail-name">Feels like</h6>
+                                            <h8 class="detail-value">14°C</h8>
+                                            
+                                            <h6 class="detail-name">Pressure</h6>
+                                            <h8 class="detail-value">1026 hPa</h8>
+                                            
+                                            <h6 class="detail-name">UV index</h6>
+                                            <h8 class="detail-value">0</h8>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-7">
-                    <div class="card" style="width: 26rem;">
-                        <div class="card-body">
-                            <div class="row" id="other-cities">
-                                <div class="col-sm-6">
-                                    <h6 class="detail-name">Sunrise</h6>
-                                    <h8 class="detail-value">7:25am</h8>
-
-                                    <h6 class="detail-name">Chance of rain</h6>
-                                    <h8 class="detail-value">10%</h8>
-
-                                    <h6 class="detail-name">Wind</h6>
-                                    <h8 class="detail-value">S 5km/hr</h8>
-
-                                    <h6 class="detail-name">Precipitation</h6>
-                                    <h8 class="detail-value">0 mm</h8>
-
-                                    <h6 class="detail-name">Humidity</h6>
-                                    <h8 class="detail-value">9.7km</h8>
+                <div class="container" id="future-weather">
+                    <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 7rem;">
+                                    <div class="card-body">
+                                        <h9 class="future-day">Mon</h9>
+                                        <h9 class="future-temps">22 13</h9>
+                                        <i class="far fa-sun"></i>
+                                    </div>
                                 </div>
-                                    
-                                <div class="col-sm-6">
-                                    <h6 class="detail-name">Sunset</h6>
-                                    <h8 class="detail-value">7:29pm</h8>
 
-                                    <h6 class="detail-name">Humidity</h6>
-                                    <h8 class="detail-value">84%</h8>
-                                    
-                                    <h6 class="detail-name">Feels like</h6>
-                                    <h8 class="detail-value">14°C</h8>
-                                    
-                                    <h6 class="detail-name">Pressure</h6>
-                                    <h8 class="detail-value">1026 hPa</h8>
-                                    
-                                    <h6 class="detail-name">UV index</h6>
-                                    <h8 class="detail-value">0</h8>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 7rem;">
+                                    <div class="card-body">
+                                        <h9 class="future-day">Tue</h9>
+                                        <h9 class="future-temps">22 13</h9>
+                                        <i class="fas fa-cloud-sun"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col">
+                                <div class="card" style="width: 7rem;">
+                                    <div class="card-body">
+                                        <h9 class="future-day">Wed</h9>
+                                        <h9 class="future-temps">23 13</h9>
+                                        <i class="far fa-sun"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 7rem;">
+                                    <div class="card-body">
+                                        <h9 class="future-day">Thu</h9>
+                                        <h9 class="future-temps">23 13</h9>
+                                        <i class="fas fa-cloud-sun"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 7rem;">
+                                    <div class="card-body">
+                                        <h9 class="future-day">Fri</h9>
+                                        <h9 class="future-temps">23 13</h9>
+                                        <i class="far fa-sun"></i>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
-        <div class="container" id="future-weather">
-            <div class="row">
-                    <div class="col">
-                        <div class="card" style="width: 7rem;">
-                            <div class="card-body">
-                                <h9 class="future-day">Mon</h9>
-                                <h9 class="future-temps">22 13</h9>
-                                <i class="far fa-sun"></i>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width: 7rem;">
-                            <div class="card-body">
-                                <h9 class="future-day">Tue</h9>
-                                <h9 class="future-temps">22 13</h9>
-                                <i class="fas fa-cloud-sun"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width: 7rem;">
-                            <div class="card-body">
-                                <h9 class="future-day">Wed</h9>
-                                <h9 class="future-temps">23 13</h9>
-                                <i class="far fa-sun"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width: 7rem;">
-                            <div class="card-body">
-                                <h9 class="future-day">Thu</h9>
-                                <h9 class="future-temps">23 13</h9>
-                                <i class="fas fa-cloud-sun"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width: 7rem;">
-                            <div class="card-body">
-                                <h9 class="future-day">Fri</h9>
-                                <h9 class="future-temps">23 13</h9>
-                                <i class="far fa-sun"></i>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </form>
+        <div>
+        <small>
+            <a href="https://github.com/alyqiat/weather-app">Open source code</a> by Alyson McIlroy
+        </small>
     </div>
     <script src="src/index.js"></script>
 </body>
