@@ -1,0 +1,102 @@
+li {
+  list-style-type: none;
+  color: gray;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 0px 0px;
+  padding-left: 0px;
+}
+
+ul {
+  padding: 0px 0px;
+  padding-left: 0px;
+}
+
+.form-group {
+  text-align: center;
+  line-height: 20px;
+}
+
+.city-search {
+  height: 20px;
+}
+
+.card {
+  min-height: 50px;
+  min-width: min-content;
+}
+
+#other-cities {
+  color: #1077c8;
+  font-weight: 600;
+}
+
+h6 {
+  color: gray;
+}
+
+.detail-value,
+.temperature,
+.high-low {
+  color: #596aca;
+}
+
+.detail-value {
+  margin-top: 0px;
+  font-size: 24px;
+}
+
+.detail-name {
+  margin-bottom: -5px;
+}
+
+.temperature {
+  font-size: 50px;
+}
+
+i {
+  font-size: 80px;
+}
+
+.future-day {
+  text-align: left;
+  margin: 0 auto;
+}
+
+.future-temps {
+  text-align: right;
+  margin: 0 auto;
+}
+
+.row > * {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#app-area {
+  margin-top: 30px;
+  border: solid 1px skyblue;
+  border-radius: 25px;
+  padding: 15px 30px;
+}
+
+#current-city {
+  margin-bottom: 0px;
+}
+
+#todays-info {
+  padding-left: 0rem;
+  margin: 0rem;
+}
+
+#todays-temperature {
+  font-size: 43px;
+}
+
+#search-text-input {
+  border-radius: 15px;
+}
+
+#search-text-input:focus {
+  border-radius: 15px;
+}
