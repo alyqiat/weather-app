@@ -24,15 +24,20 @@ function setDate(date) {
 
 setDate(new Date());
 
+
 function showTemperature(response) {
   console.log(response);
   let temperature = document.querySelector("#temperature-number");
   let low = document.querySelector("#todays-low");
   let high = document.querySelector("#todays-high");
-
+  let todaysWeatherIcon = document.querySelector("#todays-weather-icon");
+  let iconCode = response.data.weather[0].icon;
+  let icon = `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+  console.log(icon);
   temperature.innerHTML = Math.round(response.data.main.temp);
   low.innerHTML = Math.round(response.data.main.temp_min);
   high.innerHTML = Math.round(response.data.main.temp_max);
+  todaysWeatherIcon.setAttribute("src", icon);
 
 }
 
