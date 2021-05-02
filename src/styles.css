@@ -1,3 +1,7 @@
+h6 {
+  color: gray;
+}
+
 li {
   list-style-type: none;
   color: gray;
@@ -22,13 +26,8 @@ ul {
   min-width: min-content;
 }
 
-#other-cities {
-  color: #1077c8;
-  font-weight: 600;
-}
-
-h6 {
-  color: gray;
+.card-body {
+  border-color: transparent;
 }
 
 .detail-value,
@@ -67,6 +66,8 @@ i {
 .row > * {
   padding-left: 0;
   padding-right: 0;
+  margin: 30px auto;
+  --bs-gutter-x: 1px;
 }
 
 .weather-container {
@@ -76,8 +77,24 @@ i {
   padding: 15px 30px;
 }
 
+#app-area {
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+#city-search {
+  margin: auto;
+  padding: auto;
+}
+
 #current-city {
   margin-bottom: 0px;
+}
+
+#other-cities {
+  color: #1077c8;
+  font-weight: 600;
+  margin: 0;
 }
 
 #todays-info {
@@ -91,7 +108,7 @@ i {
 
 #search-text-input {
   border-radius: 10px;
-  width: 50%;
+  max-width: 50%;
   display: inline-block;
   height: 37px;
 }
@@ -100,6 +117,23 @@ i {
   border-radius: 10px;
 }
 
-.btn {
+#search-bar {
   margin: auto;
+  margin-bottom: 0px;
+  padding: auto;
+  width: 80%;
+}
+
+#weather-description::first-letter {
+  text-transform: uppercase;
+}
+
+/* .btn {
+  margin: auto;
+  
+} */
+
+#current-location-button,
+#search-button {
+  border-radius: 10px;
 }

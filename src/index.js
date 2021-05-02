@@ -4,11 +4,13 @@ function formatDay(date) {
 
   let dayString = `${dayWord}`;
   return dayString;
+
 }
 
 function formatTime(date) {
   let timeString = date.toTimeString().substr(0,5);
   return timeString;
+
 }
 
 function setDate(date) {
@@ -17,24 +19,76 @@ function setDate(date) {
 
   let displayedDate = document.querySelector("#todays-date");
   displayedDate.innerHTML = `${day} ${time}`
+
 }
 
 setDate(new Date());
 
 function showTemperature(response) {
+  console.log(response);
   let temperature = document.querySelector("#temperature-number");
+  let low = document.querySelector("#todays-low");
+  let high = document.querySelector("#todays-high");
+
   temperature.innerHTML = Math.round(response.data.main.temp);
+  low.innerHTML = Math.round(response.data.main.temp_min);
+  high.innerHTML = Math.round(response.data.main.temp_max);
+
 }
 
 function showCityName(response) {
   let currentCity = document.querySelector("#current-city");
   currentCity.innerHTML = response.data.name;
+
+}
+
+function selectWeatherIcon(response) {
+  let description = document.querySelector("#weather-description");
+  let icon = document.querySelector("#todays-weather-icon");
+
+  description.innerHTML = response.data.weather[0].description;
+}
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let time = formatTime(date);
+  
+  return time;
+}
+
+function updateDetail(response) {
+  let sunrise = document.querySelector("#sunrise");
+  let sunset = document.querySelector("#sunset");
+  let chanceOfRain = document.querySelector("#chance-of-rain");
+  let visibility = document.querySelector("#visibility");
+  let windspeed = document.querySelector("#windspeed");
+  let windDirection = document.querySelector("#wind-direction");
+  let feelsLike = document.querySelector("#feels-like");
+  let precipitation = document.querySelector("#precipitation");
+  let pressure = document.querySelector("#pressure");
+  let humidity = document.querySelector("#humidity");
+  let uvIndex = document.querySelector("#uv-index");
+
+  let sunriseDate =  formatDate(response.data.sys.sunrise * 1000);
+  let sunsetDate =  formatDate(response.data.sys.sunset * 1000);
+
+   sunrise.innerHTML = sunriseDate;
+   sunset.innerHTML = sunsetDate;
+  // chanceOfRain.innerHTML = Math.round(response.data.main.temp_min);
+  humidity.innerHTML = Math.round(response.data.main.humidity);
+  windspeed.innerHTML = Math.round(response.data.wind.speed);
+  feelsLike.innerHTML = Math.round(response.data.main.feels_like);
+  precipitation.innerHTML = Math.round(response.data.main.temp_max);
+  pressure.innerHTML = Math.round(response.data.main.pressure);
+  visibility.innerHTML = Math.round(response.data.main.temp_min);
+  uvIndex.innerHTML = Math.round(response.data.main.temp_max);
 }
 
 function search(event) {
     event.preventDefault();
     let searchInput = document.querySelector("#search-text-input");
     let currentCity = document.querySelector("#current-city");
+    console.log(searchInput.value);
 
     // Week 5 homework task
 
@@ -45,6 +99,8 @@ function search(event) {
 
       axios.get(apiUrl).then(showCityName);
       axios.get(apiUrl).then(showTemperature);
+      axios.get(apiUrl).then(selectWeatherIcon);
+      axios.get(apiUrl).then(updateDetail);
     } else {
       currentCity.innerHTML = "Auckland";
       alert("Please enter a city");
@@ -58,11 +114,13 @@ citySearch.addEventListener("click", search);
 function convertToFarenheit(temperature) {
   let temperatureInF = Math.round((temperature * 9/5) + 32);
   return temperatureInF;
+
 }
 
 function convertToCelcius(temperature) {
   let temperatureInC = Math.round((temperature - 32) * 5/9);
   return temperatureInC;
+
 }
 
 function convertUnit(event) {
@@ -98,6 +156,8 @@ function getWeatherAtCurrentPosition(position) {
     
     axios.get(apiUrl).then(showCityName);
     axios.get(apiUrl).then(showTemperature);
+    axios.get(apiUrl).then(selectWeatherIcon);
+    axios.get(apiUrl).then(updateDetail);
 
 }
 
@@ -108,6 +168,7 @@ function getCurrentLocationData(event) {
   let searchInput = document.querySelector("#search-text-input");
   console.log(searchInput);
   searchInput.value = "";
+
 }
 
 let currentLocationButton = document.querySelector("#current-location-button");
