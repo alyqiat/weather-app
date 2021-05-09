@@ -26,18 +26,19 @@ setDate(new Date());
 
 
 function showTemperature(response) {
-  console.log(response);
+  //console.log(response);
   let temperature = document.querySelector("#temperature-number");
   let low = document.querySelector("#todays-low");
   let high = document.querySelector("#todays-high");
   let todaysWeatherIcon = document.querySelector("#todays-weather-icon");
   let iconCode = response.data.weather[0].icon;
+  let iconAlt = response.data.weather[0].description;
   let icon = `http://openweathermap.org/img/wn/${iconCode}@2x.png`
-  console.log(icon);
   temperature.innerHTML = Math.round(response.data.main.temp);
   low.innerHTML = Math.round(response.data.main.temp_min);
   high.innerHTML = Math.round(response.data.main.temp_max);
   todaysWeatherIcon.setAttribute("src", icon);
+  todaysWeatherIcon.setAttribute("alt", iconAlt);
 
 }
 
@@ -171,7 +172,6 @@ function getCurrentLocationData(event) {
   navigator.geolocation.getCurrentPosition(getWeatherAtCurrentPosition);
 
   let searchInput = document.querySelector("#search-text-input");
-  console.log(searchInput);
   searchInput.value = "";
 
 }

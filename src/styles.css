@@ -11,14 +11,19 @@ li {
   padding-left: 0px;
 }
 
+i {
+  font-size: 80px;
+}
+
 ul {
   padding: 0px 0px;
   padding-left: 0px;
 }
 
-.form-group {
-  text-align: center;
-  line-height: 20px;
+.detail-value,
+.temperature,
+.high-low {
+  color: #596aca;
 }
 
 .card {
@@ -30,12 +35,6 @@ ul {
   border-color: transparent;
 }
 
-.detail-value,
-.temperature,
-.high-low {
-  color: #596aca;
-}
-
 .detail-value {
   margin-top: 0px;
   font-size: 24px;
@@ -45,12 +44,9 @@ ul {
   margin-bottom: -5px;
 }
 
-.temperature {
-  font-size: 50px;
-}
-
-i {
-  font-size: 80px;
+.form-group {
+  text-align: center;
+  line-height: 20px;
 }
 
 .future-day {
@@ -68,6 +64,10 @@ i {
   padding-right: 0;
   margin: 30px auto;
   --bs-gutter-x: 1px;
+}
+
+.temperature {
+  font-size: 50px;
 }
 
 .weather-container {
@@ -97,13 +97,11 @@ i {
   margin: 0;
 }
 
-#todays-info {
-  padding-left: 0rem;
-  margin: 0rem;
-}
-
-#todays-temperature {
-  font-size: 43px;
+#search-bar {
+  margin: auto;
+  margin-bottom: 0px;
+  padding: auto;
+  width: 80%;
 }
 
 #search-text-input {
@@ -117,11 +115,13 @@ i {
   border-radius: 10px;
 }
 
-#search-bar {
-  margin: auto;
-  margin-bottom: 0px;
-  padding: auto;
-  width: 80%;
+#todays-info {
+  padding-left: 0rem;
+  margin: 0rem;
+}
+
+#todays-temperature {
+  font-size: 43px;
 }
 
 #weather-description::first-letter {
@@ -136,4 +136,12 @@ i {
 #current-location-button,
 #search-button {
   border-radius: 10px;
+}
+
+#search-button-image,
+#current-location-image {
+  top: 200px;
+  right: 100px;
+  width: 40px;
+  height: 40px;
 }
