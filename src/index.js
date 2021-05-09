@@ -28,8 +28,6 @@ function setDate(date) {
 
 }
 
-setDate(new Date());
-
 function showTemperature(response) {
   console.log(response);
   let temperature = document.querySelector("#temperature-number");
@@ -55,9 +53,10 @@ function showCityName(response) {
 
 function selectWeatherIcon(response) {
   let description = document.querySelector("#weather-description");
-  let icon = document.querySelector("#todays-weather-icon");
+  //let icon = document.querySelector("#todays-weather-icon");
 
   description.innerHTML = response.data.weather[0].description;
+
 }
 
 function formatDate(timestamp) {
@@ -65,6 +64,7 @@ function formatDate(timestamp) {
   let time = formatTime(date);
   
   return time;
+
 }
 
 function getForecast(coordinates) {
@@ -76,6 +76,7 @@ function getForecast(coordinates) {
   console.log(apiUrl);
 
   axios.get(apiUrl).then(displayForecast);
+
 }
 
 function updateDetail(response) {
@@ -106,6 +107,7 @@ function updateDetail(response) {
   uvIndex.innerHTML = Math.round(response.data.main.temp_max);
 
   getForecast(response.data.coord);
+
 }
 
 function search(event) {
@@ -113,8 +115,6 @@ function search(event) {
     let searchInput = document.querySelector("#search-text-input");
     let currentCity = document.querySelector("#current-city");
     console.log(searchInput.value);
-
-    // Week 5 homework task
 
     if(searchInput.value) {   
       let apiKey = "ae232cb6b9d287ad9e266187fb847629"; // get from https://home.openweathermap.org/api_keys
@@ -128,12 +128,9 @@ function search(event) {
     } else {
       currentCity.innerHTML = "Auckland";
       alert("Please enter a city");
+
       }
-
 }
-
-let citySearch = document.querySelector("#search-button");
-citySearch.addEventListener("click", search);
 
 function convertToFarenheit(temperature) {
   let temperatureInF = Math.round((temperature * 9/5) + 32);
@@ -147,17 +144,10 @@ function convertToCelcius(temperature) {
 
 }
 
-function getCurrentUnit() {
-  if(units == "metric") {
-     
-  }
-}
-
 function convertUnit(event) {
   event.preventDefault();
   let currentUnit = document.querySelector("#temperature-unit");
   let temperature = document.querySelector("#temperature-number");
-  // let windUnit = document.querySelector();
 
   let newUnit = currentUnit;
   let newTemperature = temperature;
@@ -169,19 +159,12 @@ function convertUnit(event) {
     newTemperature = `${convertToCelcius(temperature.innerHTML)}`;
     newUnit = "°C";
   }
-  
-
 
   temperature.innerHTML = `${newTemperature}`;
   currentUnit.innerHTML = `${newUnit}`;
+
 }
 
-let temperature = document.querySelector("#todays-temperature");
-temperature.addEventListener("click", convertUnit)
-// let unitToggle = document.querySelector("#unit-switch");
-// unitToggle.addEventListener("click", convertUnit)
-
-// Week 5 homework - Current location
 function getWeatherAtCurrentPosition(position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
@@ -194,6 +177,7 @@ function getWeatherAtCurrentPosition(position) {
     axios.get(apiUrl).then(showTemperature);
     axios.get(apiUrl).then(selectWeatherIcon);
     axios.get(apiUrl).then(updateDetail);
+
 }
 
 function getCurrentLocationData(event) {
@@ -202,10 +186,6 @@ function getCurrentLocationData(event) {
 
   let searchInput = document.querySelector("#search-text-input");
   searchInput.value = "";
-
-}
-
-function changeUnits(event) {
 
 }
 
@@ -219,35 +199,8 @@ function initializePage(event) {
       axios.get(apiUrl).then(showTemperature);
       axios.get(apiUrl).then(selectWeatherIcon);
       axios.get(apiUrl).then(updateDetail);
+
 }
-
-// function displayFarenheitTemperature(event) {
-//   event.preventDefault;
-  
-
-// }
-
-window.addEventListener('load', initializePage)
-
-let units = "metric";
-
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocationData);
-
-// let farenheitLink = document.querySelector("#farenheit-link")
-// farenheitLink.addEventListener("click", displayFarenheitTemperature)
-
-// let unitToggle = document.getElementById('form-check-input');
-// console.log(unitToggle.value);
-
-// function changeUnits() {
-//   var toggle = document.getElementById('unit-toggle')
-
-//   if(toggle.checked != true) {
-//     alert("not true")
-//   }
-// }
-
 
 function displayForecast(response) {
   console.log(response.data.daily);
@@ -279,10 +232,21 @@ function displayForecast(response) {
         </div>
       `;
     }
-      })
-    
+
+  })
     forecastHTML += `</div>`;
-  
     forecastElement.innerHTML = forecastHTML;
    
 }
+
+window.addEventListener('load', initializePage)
+setDate(new Date());
+
+let citySearch = document.querySelector("#search-button");
+citySearch.addEventListener("click", search);
+
+let temperature = document.querySelector("#todays-temperature");
+temperature.addEventListener("click", convertUnit)
+
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocationData);
