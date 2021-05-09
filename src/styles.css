@@ -35,6 +35,10 @@ ul {
   border-color: transparent;
 }
 
+.col-6-sm {
+  margin-bottom: 0px;
+}
+
 .detail-value {
   margin-top: 0px;
   font-size: 24px;
@@ -77,14 +81,35 @@ ul {
   padding: 15px 30px;
 }
 
+#current-location-button,
+#search-button {
+  border-radius: 10px;
+  max-height: inherit;
+}
+
+#search-button-image,
+#current-location-image {
+  top: 200px;
+  right: 100px;
+  width: 40px;
+  height: 40px;
+}
+
 #app-area {
   max-width: 800px;
   margin: 30px auto;
 }
 
+#basic-weather {
+  position: relative;
+  text-align: left;
+}
+
 #city-search {
   margin: auto;
+  margin-bottom: 32px;
   padding: auto;
+  height: 36px;
 }
 
 #current-city {
@@ -94,30 +119,66 @@ ul {
 #other-cities {
   color: #1077c8;
   font-weight: 600;
-  margin: 0;
+  margin: 0 0;
+  text-decoration: none;
+}
+
+#other-cities a {
+  color: #1077c8;
+  font-weight: 600;
+  margin: 0 0;
+  text-decoration: none;
 }
 
 #search-bar {
-  margin: auto;
+  margin: 0px 30% 10px 20%;
   margin-bottom: 0px;
   padding: auto;
   width: 80%;
+  text-align: center;
+}
+
+#search-bar.input-group {
+  text-align: center;
+}
+
+#search-bar-section {
+  margin-bottom: 0px;
+  display: inline-block;
+}
+
+#search-icon {
+  color: white;
+  align-content: center;
+  vertical-align: 0px;
+  filter: brightness(0) invert(1);
 }
 
 #search-text-input {
   border-radius: 10px;
   max-width: 50%;
   display: inline-block;
-  height: 37px;
+  height: 43px;
+  margin: 0 7px;
 }
 
 #search-text-input:focus {
   border-radius: 10px;
 }
 
+#temperature-unit {
+  position: relative;
+  font-size: 16px;
+  top: -20px;
+}
+
 #todays-info {
   padding-left: 0rem;
   margin: 0rem;
+}
+
+#todays-weather {
+  margin: 0 0 10 0;
 }
 
 #todays-temperature {
@@ -128,20 +189,9 @@ ul {
   text-transform: uppercase;
 }
 
-/* .btn {
-  margin: auto;
-  
-} */
-
-#current-location-button,
-#search-button {
-  border-radius: 10px;
-}
-
-#search-button-image,
-#current-location-image {
-  top: 200px;
-  right: 100px;
-  width: 40px;
-  height: 40px;
+#unit-switch {
+  position: relative;
+  padding: 40px auto;
+  text-align: right;
+  margin-left: 20px;
 }

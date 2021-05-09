@@ -16,41 +16,42 @@
         <div class="weather-container">
             <div class="row">
                 <div class="row" id="other-cities">
-                    <div class="col-3">Auckland</div>
-                    <div class="col-3">Wellington</div>
-                    <div class="col-3">Christchurch</div>
-                    <div class="col-3">Whangerei</div>
+                    <div class="col-3"><a href="#" id="auckland">Auckland</a></div>
+                    <div class="col-3"><a href="#" id="wellington">Wellington</a></div>
+                    <div class="col-3"><a href="#" id="christchurch">Christchurch</a></div>
+                    <div class="col-3"><a href="#" id="whangerei"></a>Whangerei</div>
                 </div>
-                <form id="city-search">
-                    <!-- <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <button type="button" value="Current Location" class="btn btn-success" id="current-location-button" />
+                <div class="row" id="search-bar-section">
+                    <form id="city-search">
+                        <div class="row">
+                            <div class="input-group mb-3" id="search-bar">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-danger" type="button" id="current-location-button" value="Current Location"><img id="search-icon" src="images/location-filled-24px.png"></button>
+                                        <!-- <button class="btn btn-success" type="button" id="current-location-button" value="Current Location">Current Location</button>-->
+                                    </div>
+                                    <input type="text" class="form-control" id="search-text-input" placeholder="Enter a city name" aria-label="Enter a city name"
+                                        autofocus />
+                                    <div class="input-group-append">
+                                        <!-- <button class="btn btn-primary" type="submit" id="search-button" value="Search">Search</button> -->
+                                        <div class="right-side">
+                                            <button class="btn btn-primary" type="submit" id="search-button" value="Search"><img id="search-icon" src="images/magnifying-glass-24px.png"></button>
+                                        </div>
+                                    </div>
+                                    <div class="form-check form-switch" id="unit-switch">
+                                        <input class="form-check-input" type="checkbox" />
+                                        <label class="form-check-label" for="metric-or-imperial">Metric/Imperial</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <input type="text" class="form-control" id="search-text-input" placeholder="Enter a city name" autofocus />
-                        <div class="input-group-append">
-                            <input type="button" value="Search" class="btn btn-primary" id="search-button" />
-                        </div>
-                    </div> -->
-                    <div class="input-group mb-3" id="search-bar">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-success" type="button" id="current-location-button" value="Current Location">Current Location</button>
-                            <!-- <button class="btn btn-success" type="button" id="current-location-button" value="Current Location">Current Location</button>-->
-
-                        </div>
-                        <input type="text" class="form-control" id="search-text-input" placeholder="Enter a city name" aria-label="Enter a city name"
-                            autofocus />
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="submit" id="search-button" value="Search">Search</button>
-                            <!-- <button class="btn btn-primary" type="submit" id="search-button" value="Search">Search</button> -->
-                        </div>
-                    </div>
-                    
+                    </form>
+                </div>
                     <div class="container" id="weather-info">
-                    <div class="row">
-                        <div class="col-5">
+                    <div class="row" id="todays-weather">
+                        <!-- <div class="col-5"> -->
                             <div class="card" style="width: 15rem;">
                                 <div class="card-body">
-                                    <div class="row" id="todays-weather">
+                                    <div class="row" id="basic-weather">
                                         <div class="col-sm-6">
                                             <h5 id="current-city">Auckland</h5>
                                             <ul id="todays-info">
@@ -68,7 +69,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <!-- </div> -->
                         <div class="col-7">
                             <div class="card" style="width: 26rem;">
                                 <div class="card-body">
@@ -162,7 +163,6 @@
                         </div>
                     </div>
                 </div>
-            </form>
             </div>
         </div>
     </div>

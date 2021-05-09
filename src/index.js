@@ -1,10 +1,16 @@
 function formatDay(date) {
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  let days = ["Sunday",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"]
+
   let dayWord = days[date.getDay()];
 
   let dayString = `${dayWord}`;
   return dayString;
-
 }
 
 function formatTime(date) {
@@ -26,7 +32,7 @@ setDate(new Date());
 
 
 function showTemperature(response) {
-  //console.log(response);
+  console.log(response);
   let temperature = document.querySelector("#temperature-number");
   let low = document.querySelector("#todays-low");
   let high = document.querySelector("#todays-high");
@@ -129,6 +135,12 @@ function convertToCelcius(temperature) {
 
 }
 
+function getCurrentUnit() {
+  if(units == "metric") {
+     
+  }
+}
+
 function convertUnit(event) {
   event.preventDefault();
   let currentUnit = document.querySelector("#temperature-unit");
@@ -176,7 +188,39 @@ function getCurrentLocationData(event) {
 
 }
 
+function changeUnits(event) {
+
+}
+
+function initializePage(event) {
+  event.preventDefault();
+    let currentCity = document.querySelector("#current-city");
+
+    // Week 5 homework task
+
+      let apiKey = "ae232cb6b9d287ad9e266187fb847629"; // get from https://home.openweathermap.org/api_keys
+      let city = "Auckland";
+      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`; // from https://openweathermap.org/current
+
+      axios.get(apiUrl).then(showCityName);
+      axios.get(apiUrl).then(showTemperature);
+      axios.get(apiUrl).then(selectWeatherIcon);
+      axios.get(apiUrl).then(updateDetail);
+}
+
+// function displayFarenheitTemperature(event) {
+//   event.preventDefault;
+  
+
+// }
+
+window.addEventListener('load', initializePage)
+
+let units = "metric";
+
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocationData);
 
+// let farenheitLink = document.querySelector("#farenheit-link")
+// farenheitLink.addEventListener("click", displayFarenheitTemperature)
 
