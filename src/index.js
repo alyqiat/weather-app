@@ -30,7 +30,6 @@ function setDate(date) {
 
 setDate(new Date());
 
-
 function showTemperature(response) {
   console.log(response);
   let temperature = document.querySelector("#temperature-number");
@@ -68,6 +67,17 @@ function formatDate(timestamp) {
   return time;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiKey = "ae232cb6b9d287ad9e266187fb847629";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+  console.log(apiUrl);
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function updateDetail(response) {
   let sunrise = document.querySelector("#sunrise");
   let sunset = document.querySelector("#sunset");
@@ -90,10 +100,12 @@ function updateDetail(response) {
   humidity.innerHTML = Math.round(response.data.main.humidity);
   windspeed.innerHTML = Math.round(response.data.wind.speed);
   feelsLike.innerHTML = Math.round(response.data.main.feels_like);
-  precipitation.innerHTML = Math.round(response.data.main.temp_max);
+  // precipitation.innerHTML = Math.round(response.data.main.temp_max);
   pressure.innerHTML = Math.round(response.data.main.pressure);
   visibility.innerHTML = Math.round(response.data.main.temp_min);
   uvIndex.innerHTML = Math.round(response.data.main.temp_max);
+
+  getForecast(response.data.coord);
 }
 
 function search(event) {
@@ -177,6 +189,7 @@ function getWeatherAtCurrentPosition(position) {
     axios.get(apiUrl).then(selectWeatherIcon);
     axios.get(apiUrl).then(updateDetail);
 
+
 }
 
 function getCurrentLocationData(event) {
@@ -194,10 +207,6 @@ function changeUnits(event) {
 
 function initializePage(event) {
   event.preventDefault();
-    let currentCity = document.querySelector("#current-city");
-
-    // Week 5 homework task
-
       let apiKey = "ae232cb6b9d287ad9e266187fb847629"; // get from https://home.openweathermap.org/api_keys
       let city = "Auckland";
       let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`; // from https://openweathermap.org/current
@@ -224,3 +233,44 @@ currentLocationButton.addEventListener("click", getCurrentLocationData);
 // let farenheitLink = document.querySelector("#farenheit-link")
 // farenheitLink.addEventListener("click", displayFarenheitTemperature)
 
+// let unitToggle = document.getElementById('form-check-input');
+// console.log(unitToggle.value);
+
+// function changeUnits() {
+//   var toggle = document.getElementById('unit-toggle')
+
+//   if(toggle.checked != true) {
+//     alert("not true")
+//   }
+// }
+
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#future-weather")
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+
+  days.forEach(function(day) {
+
+    forecastHTML += ` 
+      <div class="col-2">
+        <div class="card" style="width: 7rem">
+          <div class="card-body">
+            <h9 class="future-day">${day}</h9>                                        
+            <img id="todays-weather-icon" src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" alt="sunny">
+            <h9 class="future-temps">
+                <span class="weather-forecast-max"><span id="forecast-max-number">23</span>°</span>
+                <span class="weather-forecast-min"><span id="forecast-min-number">13</span>°</span>
+            </h9>
+          </div>
+        </div>
+      </div>
+    `;
+    })
+
+    forecastHTML += `</div>`;
+
+    forecastElement.innerHTML = forecastHTML;
+   
+}

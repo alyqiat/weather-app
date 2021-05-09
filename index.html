@@ -37,10 +37,11 @@
                                             <button class="btn btn-primary" type="submit" id="search-button" value="Search"><img id="search-icon" src="images/magnifying-glass-24px.png"></button>
                                         </div>
                                     </div>
-                                    <div class="form-check form-switch" id="unit-switch">
-                                        <input class="form-check-input" type="checkbox" />
+                                    <!-- <div class="form-check form-switch" id="unit-switch">
+                                        <input class="form-check-input" type="checkbox" id="unit-toggle" onclick="changeUnits()"/><option value="off"></option>
+                                        <option value="on"></option>
                                         <label class="form-check-label" for="metric-or-imperial">Metric/Imperial</label>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -48,9 +49,8 @@
                 </div>
                     <div class="container" id="weather-info">
                     <div class="row" id="todays-weather">
-                        <!-- <div class="col-5"> -->
-                            <div class="card" style="width: 15rem;">
-                                <div class="card-body">
+                        <div class="col-5">
+
                                     <div class="row" id="basic-weather">
                                         <div class="col-sm-6">
                                             <h5 id="current-city">Auckland</h5>
@@ -58,34 +58,36 @@
                                                 <li id="todays-date">date</li>
                                                 <li id="weather-description">Clear</li>
                                             </ul>
-                                            <h7 class="temperature" id="todays-temperature">
+                                            <div>
+                                                <h7 class="temperature" id="todays-temperature">
                                                 <span class="temperature-number" id="temperature-number">15</span><span class="temperature-unit" id="temperature-unit">°C</span>
                                                 </h7>
-                                            <footer class="high-low">L:<span id="todays-low">10</span> H:<span id="todays-high">20</span></footer>
+                                                <img id="todays-weather-icon" src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" alt="sunny">
+                                            </div>
+                                            <footer class="high-low">L:<span id="todays-low">10</span>° H:<span id="todays-high">20</span>°</footer>
                                         </div>
-                                        <div class="col-sm-6" >
-                                            <img id="todays-weather-icon" src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" alt="sunny">
-                                        </div>
-                                    </div>
-                                </div>
+                                       
+
                             </div>
-                        <!-- </div> -->
+                        </div>
                         <div class="col-7">
-                            <div class="card" style="width: 26rem;">
-                                <div class="card-body">
+
                                     <div class="row" id="other-cities">
                                         <div class="col-sm-6">
                                             <h6 class="detail-name">Sunrise</h6>
                                             <h8 class="detail-value"><span id="sunrise">7:25</span></h8>
 
-                                            <h6 class="detail-name">Chance of rain</h6>
-                                            <h8 class="detail-value"><span id="chance-of-rain">10</span>%</h8>
+                                            <!-- <h6 class="detail-name">Chance of rain</h6>
+                                            <h8 class="detail-value"><span id="chance-of-rain">10</span>%</h8> -->
+
+                                            <h6 class="detail-name">Feels like</h6>
+                                            <h8 class="detail-value"><span id="feels-like">14</span><span id="feels-like-unit">°C</span></h8>
 
                                             <h6 class="detail-name">Wind</h6>
                                             <h8 class="detail-value"><span id="wind-direction"></span> <span id="windspeed">5</span><span id="windspeed-unit">km/hr</span></h8>
 
-                                            <h6 class="detail-name">Precipitation</h6>
-                                            <h8 class="detail-value"><span id="precipitation">0</span> <span id="precipitation-unit">mm</span></h8>
+                                            <!-- <h6 class="detail-name">Precipitation</h6>
+                                            <h8 class="detail-value"><span id="precipitation">0</span> <span id="precipitation-unit">mm</span></h8> -->
 
                                             <h6 class="detail-name">Visibility</h6>
                                             <h8 class="detail-value"><span id="visibility">9.7</span><span id="precipitation-unit">km</span></h8>
@@ -98,8 +100,6 @@
                                             <h6 class="detail-name">Humidity</h6>
                                             <h8 class="detail-value"><span id="humidity">84</span>%</h8>
                                             
-                                            <h6 class="detail-name">Feels like</h6>
-                                            <h8 class="detail-value"><span id="feels-like">14</span><span id="feels-like-unit">°C</span></h8>
                                             
                                             <h6 class="detail-name">Pressure</h6>
                                             <h8 class="detail-value"><span id="pressure">1026</span> hPa</h8>
@@ -107,71 +107,41 @@
                                             <h6 class="detail-name">UV index</h6>
                                             <h8 class="detail-value"><span id="uv-index">0</span></h8>
                                         </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
                 <!-- </div> -->
                 <div class="container" id="future-weather">
                     <div class="row">
-                            <div class="col">
+                            <div class="col-2">
                                 <div class="card" style="width: 7rem;">
                                     <div class="card-body">
-                                        <h9 class="future-day">Mon</h9>
-                                        <h9 class="future-temps">22 13</h9>
-                                        <i class="far fa-sun"></i>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col">
-                                <div class="card" style="width: 7rem;">
-                                    <div class="card-body">
-                                        <h9 class="future-day">Tue</h9>
-                                        <h9 class="future-temps">22 13</h9>
-                                        <i class="fas fa-cloud-sun"></i>
+                                        <h9 class="future-day">Mon</h9>                                        
+                                        <img id="todays-weather-icon" src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" alt="sunny">
+                                        <h9 class="future-temps">
+                                            <span class="weather-forecast-max"><span id="forecast-max-number">23</span>°</span>
+                                            <span class="weather-forecast-min"><span id="forecast-min-number">13</span>°</span>
+                                        </h9>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="card" style="width: 7rem;">
-                                    <div class="card-body">
-                                        <h9 class="future-day">Wed</h9>
-                                        <h9 class="future-temps">23 13</h9>
-                                        <i class="far fa-sun"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card" style="width: 7rem;">
-                                    <div class="card-body">
-                                        <h9 class="future-day">Thu</h9>
-                                        <h9 class="future-temps">23 13</h9>
-                                        <i class="fas fa-cloud-sun"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card" style="width: 7rem;">
-                                    <div class="card-body">
-                                        <h9 class="future-day">Fri</h9>
-                                        <h9 class="future-temps">23 13</h9>
-                                        <i class="far fa-sun"></i>
-                                    </div>
-                                </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="footer">
+                <small>
+                    <a href="https://github.com/alyqiat/weather-app">Open source code</a> by Alyson McIlroy
+                    <div>Location and search icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
+                            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                    </div>
+                </small>
+            </div>
         </div>
     </div>
-    <div class="footer">
-        <small>
-            <a href="https://github.com/alyqiat/weather-app">Open source code</a> by Alyson McIlroy
-            <div>Location and search icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
-                    href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-        </small>
+    
+
     <script src="src/index.js"></script>
 </body>
 </html>

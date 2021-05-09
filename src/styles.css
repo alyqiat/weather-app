@@ -54,8 +54,10 @@ ul {
 }
 
 .future-day {
-  text-align: left;
+  text-align: center;
   margin: 0 auto;
+  font-weight: 600;
+  opacity: 0.8;
 }
 
 .future-temps {
@@ -81,6 +83,18 @@ ul {
   padding: 15px 30px;
 }
 
+.weather-forecast-max {
+  opacity: 0.8;
+}
+
+.weather-forecast-min {
+  opacity: 0.5;
+}
+
+.weather-forecast-min-unit {
+  opacity: 0.5;
+}
+
 #current-location-button,
 #search-button {
   border-radius: 10px;
@@ -102,7 +116,8 @@ ul {
 
 #basic-weather {
   position: relative;
-  text-align: left;
+  text-align: center;
+  margin: auto -50px;
 }
 
 #city-search {
