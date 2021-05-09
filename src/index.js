@@ -1,11 +1,11 @@
 function formatDay(date) {
-  let days = ["Sunday",
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday"]
+  let days = ["Sun",
+              "Mon",
+              "Tue",
+              "Wed",
+              "Thu",
+              "Fri",
+              "Sat"]
 
   let dayWord = days[date.getDay()];
 
@@ -157,6 +157,8 @@ function convertUnit(event) {
   event.preventDefault();
   let currentUnit = document.querySelector("#temperature-unit");
   let temperature = document.querySelector("#temperature-number");
+  // let windUnit = document.querySelector();
+
   let newUnit = currentUnit;
   let newTemperature = temperature;
 
@@ -167,6 +169,8 @@ function convertUnit(event) {
     newTemperature = `${convertToCelcius(temperature.innerHTML)}`;
     newUnit = "°C";
   }
+  
+
 
   temperature.innerHTML = `${newTemperature}`;
   currentUnit.innerHTML = `${newUnit}`;
@@ -174,6 +178,8 @@ function convertUnit(event) {
 
 let temperature = document.querySelector("#todays-temperature");
 temperature.addEventListener("click", convertUnit)
+// let unitToggle = document.querySelector("#unit-switch");
+// unitToggle.addEventListener("click", convertUnit)
 
 // Week 5 homework - Current location
 function getWeatherAtCurrentPosition(position) {
@@ -188,8 +194,6 @@ function getWeatherAtCurrentPosition(position) {
     axios.get(apiUrl).then(showTemperature);
     axios.get(apiUrl).then(selectWeatherIcon);
     axios.get(apiUrl).then(updateDetail);
-
-
 }
 
 function getCurrentLocationData(event) {
@@ -244,33 +248,41 @@ currentLocationButton.addEventListener("click", getCurrentLocationData);
 //   }
 // }
 
+
 function displayForecast(response) {
   console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#future-weather")
 
   let forecastHTML = `<div class="row">`;
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri"]
 
-  days.forEach(function(day) {
+  forecast.forEach(function (forecastDay, index) {
+    if(index < 6) {
+      let iconCode = forecastDay.weather[0].icon;
+      let max = Math.round(forecastDay.temp.max);
+      let min = Math.round(forecastDay.temp.min);
+      let day = new Date(forecastDay.dt * 1000)
 
-    forecastHTML += ` 
-      <div class="col-2">
-        <div class="card" style="width: 7rem">
-          <div class="card-body">
-            <h9 class="future-day">${day}</h9>                                        
-            <img id="todays-weather-icon" src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" alt="sunny">
-            <h9 class="future-temps">
-                <span class="weather-forecast-max"><span id="forecast-max-number">23</span>°</span>
-                <span class="weather-forecast-min"><span id="forecast-min-number">13</span>°</span>
-            </h9>
+      forecastHTML += ` 
+        <div class="col-2">
+          <div class="card" style="width: 7rem">
+            <div class="card-body">
+              <h9 class="future-day">${formatDay(day)}</h9>                                        
+              <img id="todays-weather-icon" src="http://openweathermap.org/img/wn/${iconCode}@2x.png" alt="sunny">
+              <h9 class="future-temps">
+                  <span class="weather-forecast-max"><span id="forecast-max-number">${max}</span>°</span>
+                  <span class="weather-forecast-min"><span id="forecast-min-number">${min}</span>°</span>
+              </h9>
+            </div>
           </div>
         </div>
-      </div>
-    `;
-    })
-
+      `;
+    }
+      })
+    
     forecastHTML += `</div>`;
-
+  
     forecastElement.innerHTML = forecastHTML;
    
 }
